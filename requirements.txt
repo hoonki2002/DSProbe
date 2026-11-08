@@ -1,0 +1,9 @@
+# CUDA-enabled PyTorch wheels can be installed separately before this file.
+# Core probing dependencies only. For full-model CPU StatNN, additionally run:
+#   python -m pip install '.[statnn]'
+# The statnn extra pins xgboost==3.2.0 and scikit-learn==1.7.2.
+# Other experiments do not need these optional classifier dependencies.
+torch>=2.5.1
+numpy==1.26.4
+safetensors==0.8.0
+matplotlib==3.10.9

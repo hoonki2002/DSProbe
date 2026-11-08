@@ -1,0 +1,8 @@
+{
+  "description": "Table 6: classic first-order ProbeX; standardized independently trained Gram branches.",
+  "task": "membership",
+  "models": ["ResNet", "SupViT", "MAE", "DINO"],
+  "layers": {"ResNet": [55], "SupViT": [59], "MAE": [64], "DINO": [47]},
+  "methods": ["linear_raw", "linear_pretrained", "linear_learned", "gram_left_raw", "gram_left_pretrained", "gram_left_learned", "gram_right_raw", "gram_right_pretrained", "gram_right_learned"],
+  "seeds": [1, 2, 3, 4, 5]
+}

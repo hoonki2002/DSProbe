@@ -1,0 +1,54 @@
+{
+  "description": "Table 11: which reference is subtracted, under the four-branch architecture. The reference variants exist to explain R-DSProbe, so they are probed at R-DSProbe's validation-selected layers; MVProbe keeps its own, as in Table 1.",
+  "task": "membership",
+  "models": [
+    "ResNet",
+    "SupViT",
+    "MAE",
+    "DINO"
+  ],
+  "layers": {
+    "ResNet": [
+      98
+    ],
+    "SupViT": [
+      53
+    ],
+    "MAE": [
+      65
+    ],
+    "DINO": [
+      47
+    ]
+  },
+  "layer_overrides": {
+    "mvprobe": {
+      "ResNet": [
+        55
+      ],
+      "SupViT": [
+        59
+      ],
+      "MAE": [
+        64
+      ],
+      "DINO": [
+        47
+      ]
+    }
+  },
+  "methods": [
+    "mvprobe",
+    "dsprobe_rand_norm",
+    "dsprobe",
+    "dsprobe_mean",
+    "r_dsprobe"
+  ],
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

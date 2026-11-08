@@ -1,0 +1,8 @@
+{
+  "description": "Table 5: jointly trained degree-3/4 branches and duplicate capacity controls.",
+  "task": "membership",
+  "models": ["ResNet", "SupViT", "MAE", "DINO"],
+  "layers": {"ResNet": [55], "SupViT": [59], "MAE": [64], "DINO": [47]},
+  "methods": ["mvprobe", "poly6", "duplicate6", "poly8", "duplicate8"],
+  "seeds": [1, 2, 3, 4, 5]
+}

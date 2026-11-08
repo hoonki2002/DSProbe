@@ -1,0 +1,51 @@
+{
+  "description": "Table 13: where R-DSProbe's trainable reference starts. Select the starting point with --learned-init. R-DSProbe variants use R-DSProbe's validation-selected layers; the MVProbe column keeps its own.",
+  "task": "membership",
+  "models": [
+    "ResNet",
+    "SupViT",
+    "MAE",
+    "DINO"
+  ],
+  "layers": {
+    "ResNet": [
+      98
+    ],
+    "SupViT": [
+      53
+    ],
+    "MAE": [
+      65
+    ],
+    "DINO": [
+      47
+    ]
+  },
+  "layer_overrides": {
+    "mvprobe": {
+      "ResNet": [
+        55
+      ],
+      "SupViT": [
+        59
+      ],
+      "MAE": [
+        64
+      ],
+      "DINO": [
+        47
+      ]
+    }
+  },
+  "methods": [
+    "mvprobe",
+    "r_dsprobe"
+  ],
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

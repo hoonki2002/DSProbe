@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "displacement-probing"
+version = "0.1.0"
+description = "The Reference Matters: Displacement Probing for Weight-Space Learning (DSProbe and R-DSProbe)"
+readme = "README.md"
+requires-python = ">=3.10,<3.12"
+dependencies = [
+  "torch>=2.5",
+  "numpy>=1.26,<2",
+  "safetensors>=0.4,<1",
+  "matplotlib>=3.8,<4",
+]
+
+[project.optional-dependencies]
+statnn = ["xgboost==3.2.0", "scikit-learn==1.7.2"]
+download = [
+  "datasets>=3,<5",
+  "huggingface-hub>=0.27,<2",
+]
+text = [
+  "torchvision>=0.20",
+  "clip @ git+https://github.com/openai/CLIP.git@d05afc436d78f1c48dc0dbf8e5980a9d471f35f6",
+]
+
+[project.scripts]
+dsprobe = "dsprobe.cli:main"
+
+[tool.setuptools]
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+
+[tool.setuptools.packages.find]
+include = ["dsprobe*"]
+
+[tool.setuptools.package-data]
+dsprobe = ["assets/*.json", "assets/layers/*.csv"]

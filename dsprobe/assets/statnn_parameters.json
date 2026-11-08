@@ -1,0 +1,4279 @@
+{
+  "_provenance": {
+    "schema_version": 1,
+    "description": "Public parameter names and tensor shapes for the full-model Model-J StatNN baseline; no weights, examples, class-name maps, labels, or local paths are included.",
+    "dataset": {
+      "repository": "ProbeX/Model-J",
+      "url": "https://huggingface.co/datasets/ProbeX/Model-J"
+    },
+    "parameter_selection": "Sorted torch.nn.Module.named_parameters() names for each Model-J fine-tuned target. ResNet uses Transformers ResNetForImageClassification; SupViT, MAE and DINO use Transformers ViTForImageClassification. All target classifier weights and biases are included; nonparameter buffers are excluded.",
+    "architecture_documentation": {
+      "ResNetForImageClassification": "https://huggingface.co/docs/transformers/model_doc/resnet",
+      "ViTForImageClassification": "https://huggingface.co/docs/transformers/model_doc/vit"
+    },
+    "classifier_output_dimension": 50,
+    "feature_order_per_tensor": [
+      "q0",
+      "q25",
+      "q50",
+      "q75",
+      "q100",
+      "std_ddof0",
+      "mean"
+    ],
+    "statistic_source": {
+      "repository": "https://github.com/google-research/google-research",
+      "commit": "60a55a0fb30eb0722fa49aa7bb3412312d57c314",
+      "file": "dnn_predict_accuracy/colab/dnn_predict_accuracy.ipynb",
+      "url": "https://github.com/google-research/google-research/blob/60a55a0fb30eb0722fa49aa7bb3412312d57c314/dnn_predict_accuracy/colab/dnn_predict_accuracy.ipynb",
+      "file_sha256": "8179c5eb535b943fd272af13f962ec11c26f4b7ad937f5bfeaa0fc1a1dd766e4",
+      "function": "extract_summary_features"
+    },
+    "adaptation": "The statistic function is used per named parameter tensor and concatenated. The Model-J task uses a 100-output XGBoost multilabel classifier; it is not the source notebook's LightGBM accuracy-regression task.",
+    "expected_parameter_tensors": {
+      "ResNet": 314,
+      "SupViT": 200,
+      "MAE": 200,
+      "DINO": 200
+    },
+    "expected_feature_dimensions": {
+      "ResNet": 2198,
+      "SupViT": 1400,
+      "MAE": 1400,
+      "DINO": 1400
+    }
+  },
+  "ResNet": {
+    "parameter_keys": [
+      "classifier.1.bias",
+      "classifier.1.weight",
+      "resnet.embedder.embedder.convolution.weight",
+      "resnet.embedder.embedder.normalization.bias",
+      "resnet.embedder.embedder.normalization.weight",
+      "resnet.encoder.stages.0.layers.0.layer.0.convolution.weight",
+      "resnet.encoder.stages.0.layers.0.layer.0.normalization.bias",
+      "resnet.encoder.stages.0.layers.0.layer.0.normalization.weight",
+      "resnet.encoder.stages.0.layers.0.layer.1.convolution.weight",
+      "resnet.encoder.stages.0.layers.0.layer.1.normalization.bias",
+      "resnet.encoder.stages.0.layers.0.layer.1.normalization.weight",
+      "resnet.encoder.stages.0.layers.0.layer.2.convolution.weight",
+      "resnet.encoder.stages.0.layers.0.layer.2.normalization.bias",
+      "resnet.encoder.stages.0.layers.0.layer.2.normalization.weight",
+      "resnet.encoder.stages.0.layers.0.shortcut.convolution.weight",
+      "resnet.encoder.stages.0.layers.0.shortcut.normalization.bias",
+      "resnet.encoder.stages.0.layers.0.shortcut.normalization.weight",
+      "resnet.encoder.stages.0.layers.1.layer.0.convolution.weight",
+      "resnet.encoder.stages.0.layers.1.layer.0.normalization.bias",
+      "resnet.encoder.stages.0.layers.1.layer.0.normalization.weight",
+      "resnet.encoder.stages.0.layers.1.layer.1.convolution.weight",
+      "resnet.encoder.stages.0.layers.1.layer.1.normalization.bias",
+      "resnet.encoder.stages.0.layers.1.layer.1.normalization.weight",
+      "resnet.encoder.stages.0.layers.1.layer.2.convolution.weight",
+      "resnet.encoder.stages.0.layers.1.layer.2.normalization.bias",
+      "resnet.encoder.stages.0.layers.1.layer.2.normalization.weight",
+      "resnet.encoder.stages.0.layers.2.layer.0.convolution.weight",
+      "resnet.encoder.stages.0.layers.2.layer.0.normalization.bias",
+      "resnet.encoder.stages.0.layers.2.layer.0.normalization.weight",
+      "resnet.encoder.stages.0.layers.2.layer.1.convolution.weight",
+      "resnet.encoder.stages.0.layers.2.layer.1.normalization.bias",
+      "resnet.encoder.stages.0.layers.2.layer.1.normalization.weight",
+      "resnet.encoder.stages.0.layers.2.layer.2.convolution.weight",
+      "resnet.encoder.stages.0.layers.2.layer.2.normalization.bias",
+      "resnet.encoder.stages.0.layers.2.layer.2.normalization.weight",
+      "resnet.encoder.stages.1.layers.0.layer.0.convolution.weight",
+      "resnet.encoder.stages.1.layers.0.layer.0.normalization.bias",
+      "resnet.encoder.stages.1.layers.0.layer.0.normalization.weight",
+      "resnet.encoder.stages.1.layers.0.layer.1.convolution.weight",
+      "resnet.encoder.stages.1.layers.0.layer.1.normalization.bias",
+      "resnet.encoder.stages.1.layers.0.layer.1.normalization.weight",
+      "resnet.encoder.stages.1.layers.0.layer.2.convolution.weight",
+      "resnet.encoder.stages.1.layers.0.layer.2.normalization.bias",
+      "resnet.encoder.stages.1.layers.0.layer.2.normalization.weight",
+      "resnet.encoder.stages.1.layers.0.shortcut.convolution.weight",
+      "resnet.encoder.stages.1.layers.0.shortcut.normalization.bias",
+      "resnet.encoder.stages.1.layers.0.shortcut.normalization.weight",
+      "resnet.encoder.stages.1.layers.1.layer.0.convolution.weight",
+      "resnet.encoder.stages.1.layers.1.layer.0.normalization.bias",
+      "resnet.encoder.stages.1.layers.1.layer.0.normalization.weight",
+      "resnet.encoder.stages.1.layers.1.layer.1.convolution.weight",
+      "resnet.encoder.stages.1.layers.1.layer.1.normalization.bias",
+      "resnet.encoder.stages.1.layers.1.layer.1.normalization.weight",
+      "resnet.encoder.stages.1.layers.1.layer.2.convolution.weight",
+      "resnet.encoder.stages.1.layers.1.layer.2.normalization.bias",
+      "resnet.encoder.stages.1.layers.1.layer.2.normalization.weight",
+      "resnet.encoder.stages.1.layers.2.layer.0.convolution.weight",
+      "resnet.encoder.stages.1.layers.2.layer.0.normalization.bias",
+      "resnet.encoder.stages.1.layers.2.layer.0.normalization.weight",
+      "resnet.encoder.stages.1.layers.2.layer.1.convolution.weight",
+      "resnet.encoder.stages.1.layers.2.layer.1.normalization.bias",
+      "resnet.encoder.stages.1.layers.2.layer.1.normalization.weight",
+      "resnet.encoder.stages.1.layers.2.layer.2.convolution.weight",
+      "resnet.encoder.stages.1.layers.2.layer.2.normalization.bias",
+      "resnet.encoder.stages.1.layers.2.layer.2.normalization.weight",
+      "resnet.encoder.stages.1.layers.3.layer.0.convolution.weight",
+      "resnet.encoder.stages.1.layers.3.layer.0.normalization.bias",
+      "resnet.encoder.stages.1.layers.3.layer.0.normalization.weight",
+      "resnet.encoder.stages.1.layers.3.layer.1.convolution.weight",
+      "resnet.encoder.stages.1.layers.3.layer.1.normalization.bias",
+      "resnet.encoder.stages.1.layers.3.layer.1.normalization.weight",
+      "resnet.encoder.stages.1.layers.3.layer.2.convolution.weight",
+      "resnet.encoder.stages.1.layers.3.layer.2.normalization.bias",
+      "resnet.encoder.stages.1.layers.3.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.0.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.0.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.0.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.0.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.0.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.0.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.0.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.0.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.0.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.0.shortcut.convolution.weight",
+      "resnet.encoder.stages.2.layers.0.shortcut.normalization.bias",
+      "resnet.encoder.stages.2.layers.0.shortcut.normalization.weight",
+      "resnet.encoder.stages.2.layers.1.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.1.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.1.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.1.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.1.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.1.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.1.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.1.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.1.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.10.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.10.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.10.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.10.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.10.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.10.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.10.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.10.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.10.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.11.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.11.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.11.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.11.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.11.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.11.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.11.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.11.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.11.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.12.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.12.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.12.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.12.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.12.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.12.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.12.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.12.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.12.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.13.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.13.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.13.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.13.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.13.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.13.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.13.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.13.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.13.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.14.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.14.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.14.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.14.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.14.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.14.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.14.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.14.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.14.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.15.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.15.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.15.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.15.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.15.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.15.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.15.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.15.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.15.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.16.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.16.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.16.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.16.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.16.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.16.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.16.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.16.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.16.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.17.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.17.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.17.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.17.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.17.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.17.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.17.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.17.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.17.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.18.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.18.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.18.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.18.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.18.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.18.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.18.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.18.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.18.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.19.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.19.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.19.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.19.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.19.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.19.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.19.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.19.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.19.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.2.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.2.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.2.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.2.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.2.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.2.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.2.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.2.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.2.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.20.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.20.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.20.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.20.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.20.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.20.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.20.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.20.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.20.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.21.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.21.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.21.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.21.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.21.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.21.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.21.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.21.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.21.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.22.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.22.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.22.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.22.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.22.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.22.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.22.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.22.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.22.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.3.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.3.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.3.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.3.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.3.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.3.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.3.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.3.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.3.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.4.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.4.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.4.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.4.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.4.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.4.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.4.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.4.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.4.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.5.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.5.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.5.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.5.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.5.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.5.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.5.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.5.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.5.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.6.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.6.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.6.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.6.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.6.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.6.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.6.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.6.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.6.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.7.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.7.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.7.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.7.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.7.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.7.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.7.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.7.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.7.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.8.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.8.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.8.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.8.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.8.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.8.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.8.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.8.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.8.layer.2.normalization.weight",
+      "resnet.encoder.stages.2.layers.9.layer.0.convolution.weight",
+      "resnet.encoder.stages.2.layers.9.layer.0.normalization.bias",
+      "resnet.encoder.stages.2.layers.9.layer.0.normalization.weight",
+      "resnet.encoder.stages.2.layers.9.layer.1.convolution.weight",
+      "resnet.encoder.stages.2.layers.9.layer.1.normalization.bias",
+      "resnet.encoder.stages.2.layers.9.layer.1.normalization.weight",
+      "resnet.encoder.stages.2.layers.9.layer.2.convolution.weight",
+      "resnet.encoder.stages.2.layers.9.layer.2.normalization.bias",
+      "resnet.encoder.stages.2.layers.9.layer.2.normalization.weight",
+      "resnet.encoder.stages.3.layers.0.layer.0.convolution.weight",
+      "resnet.encoder.stages.3.layers.0.layer.0.normalization.bias",
+      "resnet.encoder.stages.3.layers.0.layer.0.normalization.weight",
+      "resnet.encoder.stages.3.layers.0.layer.1.convolution.weight",
+      "resnet.encoder.stages.3.layers.0.layer.1.normalization.bias",
+      "resnet.encoder.stages.3.layers.0.layer.1.normalization.weight",
+      "resnet.encoder.stages.3.layers.0.layer.2.convolution.weight",
+      "resnet.encoder.stages.3.layers.0.layer.2.normalization.bias",
+      "resnet.encoder.stages.3.layers.0.layer.2.normalization.weight",
+      "resnet.encoder.stages.3.layers.0.shortcut.convolution.weight",
+      "resnet.encoder.stages.3.layers.0.shortcut.normalization.bias",
+      "resnet.encoder.stages.3.layers.0.shortcut.normalization.weight",
+      "resnet.encoder.stages.3.layers.1.layer.0.convolution.weight",
+      "resnet.encoder.stages.3.layers.1.layer.0.normalization.bias",
+      "resnet.encoder.stages.3.layers.1.layer.0.normalization.weight",
+      "resnet.encoder.stages.3.layers.1.layer.1.convolution.weight",
+      "resnet.encoder.stages.3.layers.1.layer.1.normalization.bias",
+      "resnet.encoder.stages.3.layers.1.layer.1.normalization.weight",
+      "resnet.encoder.stages.3.layers.1.layer.2.convolution.weight",
+      "resnet.encoder.stages.3.layers.1.layer.2.normalization.bias",
+      "resnet.encoder.stages.3.layers.1.layer.2.normalization.weight",
+      "resnet.encoder.stages.3.layers.2.layer.0.convolution.weight",
+      "resnet.encoder.stages.3.layers.2.layer.0.normalization.bias",
+      "resnet.encoder.stages.3.layers.2.layer.0.normalization.weight",
+      "resnet.encoder.stages.3.layers.2.layer.1.convolution.weight",
+      "resnet.encoder.stages.3.layers.2.layer.1.normalization.bias",
+      "resnet.encoder.stages.3.layers.2.layer.1.normalization.weight",
+      "resnet.encoder.stages.3.layers.2.layer.2.convolution.weight",
+      "resnet.encoder.stages.3.layers.2.layer.2.normalization.bias",
+      "resnet.encoder.stages.3.layers.2.layer.2.normalization.weight"
+    ],
+    "shapes": {
+      "classifier.1.bias": [
+        50
+      ],
+      "classifier.1.weight": [
+        50,
+        2048
+      ],
+      "resnet.embedder.embedder.convolution.weight": [
+        64,
+        3,
+        7,
+        7
+      ],
+      "resnet.embedder.embedder.normalization.bias": [
+        64
+      ],
+      "resnet.embedder.embedder.normalization.weight": [
+        64
+      ],
+      "resnet.encoder.stages.0.layers.0.layer.0.convolution.weight": [
+        64,
+        64,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.0.layers.0.layer.0.normalization.bias": [
+        64
+      ],
+      "resnet.encoder.stages.0.layers.0.layer.0.normalization.weight": [
+        64
+      ],
+      "resnet.encoder.stages.0.layers.0.layer.1.convolution.weight": [
+        64,
+        64,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.0.layers.0.layer.1.normalization.bias": [
+        64
+      ],
+      "resnet.encoder.stages.0.layers.0.layer.1.normalization.weight": [
+        64
+      ],
+      "resnet.encoder.stages.0.layers.0.layer.2.convolution.weight": [
+        256,
+        64,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.0.layers.0.layer.2.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.0.layers.0.layer.2.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.0.layers.0.shortcut.convolution.weight": [
+        256,
+        64,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.0.layers.0.shortcut.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.0.layers.0.shortcut.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.0.layers.1.layer.0.convolution.weight": [
+        64,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.0.layers.1.layer.0.normalization.bias": [
+        64
+      ],
+      "resnet.encoder.stages.0.layers.1.layer.0.normalization.weight": [
+        64
+      ],
+      "resnet.encoder.stages.0.layers.1.layer.1.convolution.weight": [
+        64,
+        64,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.0.layers.1.layer.1.normalization.bias": [
+        64
+      ],
+      "resnet.encoder.stages.0.layers.1.layer.1.normalization.weight": [
+        64
+      ],
+      "resnet.encoder.stages.0.layers.1.layer.2.convolution.weight": [
+        256,
+        64,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.0.layers.1.layer.2.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.0.layers.1.layer.2.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.0.layers.2.layer.0.convolution.weight": [
+        64,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.0.layers.2.layer.0.normalization.bias": [
+        64
+      ],
+      "resnet.encoder.stages.0.layers.2.layer.0.normalization.weight": [
+        64
+      ],
+      "resnet.encoder.stages.0.layers.2.layer.1.convolution.weight": [
+        64,
+        64,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.0.layers.2.layer.1.normalization.bias": [
+        64
+      ],
+      "resnet.encoder.stages.0.layers.2.layer.1.normalization.weight": [
+        64
+      ],
+      "resnet.encoder.stages.0.layers.2.layer.2.convolution.weight": [
+        256,
+        64,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.0.layers.2.layer.2.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.0.layers.2.layer.2.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.1.layers.0.layer.0.convolution.weight": [
+        128,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.1.layers.0.layer.0.normalization.bias": [
+        128
+      ],
+      "resnet.encoder.stages.1.layers.0.layer.0.normalization.weight": [
+        128
+      ],
+      "resnet.encoder.stages.1.layers.0.layer.1.convolution.weight": [
+        128,
+        128,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.1.layers.0.layer.1.normalization.bias": [
+        128
+      ],
+      "resnet.encoder.stages.1.layers.0.layer.1.normalization.weight": [
+        128
+      ],
+      "resnet.encoder.stages.1.layers.0.layer.2.convolution.weight": [
+        512,
+        128,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.1.layers.0.layer.2.normalization.bias": [
+        512
+      ],
+      "resnet.encoder.stages.1.layers.0.layer.2.normalization.weight": [
+        512
+      ],
+      "resnet.encoder.stages.1.layers.0.shortcut.convolution.weight": [
+        512,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.1.layers.0.shortcut.normalization.bias": [
+        512
+      ],
+      "resnet.encoder.stages.1.layers.0.shortcut.normalization.weight": [
+        512
+      ],
+      "resnet.encoder.stages.1.layers.1.layer.0.convolution.weight": [
+        128,
+        512,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.1.layers.1.layer.0.normalization.bias": [
+        128
+      ],
+      "resnet.encoder.stages.1.layers.1.layer.0.normalization.weight": [
+        128
+      ],
+      "resnet.encoder.stages.1.layers.1.layer.1.convolution.weight": [
+        128,
+        128,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.1.layers.1.layer.1.normalization.bias": [
+        128
+      ],
+      "resnet.encoder.stages.1.layers.1.layer.1.normalization.weight": [
+        128
+      ],
+      "resnet.encoder.stages.1.layers.1.layer.2.convolution.weight": [
+        512,
+        128,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.1.layers.1.layer.2.normalization.bias": [
+        512
+      ],
+      "resnet.encoder.stages.1.layers.1.layer.2.normalization.weight": [
+        512
+      ],
+      "resnet.encoder.stages.1.layers.2.layer.0.convolution.weight": [
+        128,
+        512,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.1.layers.2.layer.0.normalization.bias": [
+        128
+      ],
+      "resnet.encoder.stages.1.layers.2.layer.0.normalization.weight": [
+        128
+      ],
+      "resnet.encoder.stages.1.layers.2.layer.1.convolution.weight": [
+        128,
+        128,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.1.layers.2.layer.1.normalization.bias": [
+        128
+      ],
+      "resnet.encoder.stages.1.layers.2.layer.1.normalization.weight": [
+        128
+      ],
+      "resnet.encoder.stages.1.layers.2.layer.2.convolution.weight": [
+        512,
+        128,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.1.layers.2.layer.2.normalization.bias": [
+        512
+      ],
+      "resnet.encoder.stages.1.layers.2.layer.2.normalization.weight": [
+        512
+      ],
+      "resnet.encoder.stages.1.layers.3.layer.0.convolution.weight": [
+        128,
+        512,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.1.layers.3.layer.0.normalization.bias": [
+        128
+      ],
+      "resnet.encoder.stages.1.layers.3.layer.0.normalization.weight": [
+        128
+      ],
+      "resnet.encoder.stages.1.layers.3.layer.1.convolution.weight": [
+        128,
+        128,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.1.layers.3.layer.1.normalization.bias": [
+        128
+      ],
+      "resnet.encoder.stages.1.layers.3.layer.1.normalization.weight": [
+        128
+      ],
+      "resnet.encoder.stages.1.layers.3.layer.2.convolution.weight": [
+        512,
+        128,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.1.layers.3.layer.2.normalization.bias": [
+        512
+      ],
+      "resnet.encoder.stages.1.layers.3.layer.2.normalization.weight": [
+        512
+      ],
+      "resnet.encoder.stages.2.layers.0.layer.0.convolution.weight": [
+        256,
+        512,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.0.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.0.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.0.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.0.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.0.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.0.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.0.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.0.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.0.shortcut.convolution.weight": [
+        1024,
+        512,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.0.shortcut.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.0.shortcut.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.1.layer.0.convolution.weight": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.1.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.1.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.1.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.1.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.1.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.1.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.1.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.1.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.10.layer.0.convolution.weight": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.10.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.10.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.10.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.10.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.10.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.10.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.10.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.10.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.11.layer.0.convolution.weight": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.11.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.11.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.11.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.11.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.11.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.11.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.11.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.11.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.12.layer.0.convolution.weight": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.12.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.12.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.12.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.12.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.12.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.12.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.12.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.12.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.13.layer.0.convolution.weight": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.13.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.13.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.13.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.13.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.13.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.13.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.13.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.13.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.14.layer.0.convolution.weight": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.14.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.14.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.14.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.14.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.14.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.14.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.14.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.14.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.15.layer.0.convolution.weight": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.15.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.15.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.15.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.15.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.15.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.15.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.15.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.15.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.16.layer.0.convolution.weight": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.16.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.16.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.16.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.16.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.16.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.16.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.16.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.16.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.17.layer.0.convolution.weight": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.17.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.17.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.17.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.17.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.17.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.17.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.17.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.17.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.18.layer.0.convolution.weight": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.18.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.18.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.18.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.18.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.18.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.18.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.18.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.18.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.19.layer.0.convolution.weight": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.19.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.19.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.19.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.19.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.19.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.19.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.19.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.19.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.2.layer.0.convolution.weight": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.2.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.2.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.2.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.2.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.2.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.2.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.2.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.2.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.20.layer.0.convolution.weight": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.20.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.20.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.20.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.20.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.20.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.20.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.20.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.20.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.21.layer.0.convolution.weight": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.21.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.21.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.21.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.21.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.21.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.21.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.21.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.21.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.22.layer.0.convolution.weight": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.22.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.22.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.22.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.22.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.22.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.22.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.22.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.22.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.3.layer.0.convolution.weight": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.3.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.3.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.3.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.3.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.3.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.3.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.3.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.3.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.4.layer.0.convolution.weight": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.4.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.4.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.4.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.4.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.4.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.4.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.4.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.4.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.5.layer.0.convolution.weight": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.5.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.5.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.5.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.5.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.5.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.5.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.5.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.5.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.6.layer.0.convolution.weight": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.6.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.6.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.6.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.6.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.6.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.6.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.6.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.6.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.7.layer.0.convolution.weight": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.7.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.7.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.7.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.7.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.7.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.7.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.7.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.7.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.8.layer.0.convolution.weight": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.8.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.8.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.8.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.8.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.8.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.8.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.8.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.8.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.9.layer.0.convolution.weight": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.9.layer.0.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.9.layer.0.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.9.layer.1.convolution.weight": [
+        256,
+        256,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.2.layers.9.layer.1.normalization.bias": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.9.layer.1.normalization.weight": [
+        256
+      ],
+      "resnet.encoder.stages.2.layers.9.layer.2.convolution.weight": [
+        1024,
+        256,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.2.layers.9.layer.2.normalization.bias": [
+        1024
+      ],
+      "resnet.encoder.stages.2.layers.9.layer.2.normalization.weight": [
+        1024
+      ],
+      "resnet.encoder.stages.3.layers.0.layer.0.convolution.weight": [
+        512,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.3.layers.0.layer.0.normalization.bias": [
+        512
+      ],
+      "resnet.encoder.stages.3.layers.0.layer.0.normalization.weight": [
+        512
+      ],
+      "resnet.encoder.stages.3.layers.0.layer.1.convolution.weight": [
+        512,
+        512,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.3.layers.0.layer.1.normalization.bias": [
+        512
+      ],
+      "resnet.encoder.stages.3.layers.0.layer.1.normalization.weight": [
+        512
+      ],
+      "resnet.encoder.stages.3.layers.0.layer.2.convolution.weight": [
+        2048,
+        512,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.3.layers.0.layer.2.normalization.bias": [
+        2048
+      ],
+      "resnet.encoder.stages.3.layers.0.layer.2.normalization.weight": [
+        2048
+      ],
+      "resnet.encoder.stages.3.layers.0.shortcut.convolution.weight": [
+        2048,
+        1024,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.3.layers.0.shortcut.normalization.bias": [
+        2048
+      ],
+      "resnet.encoder.stages.3.layers.0.shortcut.normalization.weight": [
+        2048
+      ],
+      "resnet.encoder.stages.3.layers.1.layer.0.convolution.weight": [
+        512,
+        2048,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.3.layers.1.layer.0.normalization.bias": [
+        512
+      ],
+      "resnet.encoder.stages.3.layers.1.layer.0.normalization.weight": [
+        512
+      ],
+      "resnet.encoder.stages.3.layers.1.layer.1.convolution.weight": [
+        512,
+        512,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.3.layers.1.layer.1.normalization.bias": [
+        512
+      ],
+      "resnet.encoder.stages.3.layers.1.layer.1.normalization.weight": [
+        512
+      ],
+      "resnet.encoder.stages.3.layers.1.layer.2.convolution.weight": [
+        2048,
+        512,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.3.layers.1.layer.2.normalization.bias": [
+        2048
+      ],
+      "resnet.encoder.stages.3.layers.1.layer.2.normalization.weight": [
+        2048
+      ],
+      "resnet.encoder.stages.3.layers.2.layer.0.convolution.weight": [
+        512,
+        2048,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.3.layers.2.layer.0.normalization.bias": [
+        512
+      ],
+      "resnet.encoder.stages.3.layers.2.layer.0.normalization.weight": [
+        512
+      ],
+      "resnet.encoder.stages.3.layers.2.layer.1.convolution.weight": [
+        512,
+        512,
+        3,
+        3
+      ],
+      "resnet.encoder.stages.3.layers.2.layer.1.normalization.bias": [
+        512
+      ],
+      "resnet.encoder.stages.3.layers.2.layer.1.normalization.weight": [
+        512
+      ],
+      "resnet.encoder.stages.3.layers.2.layer.2.convolution.weight": [
+        2048,
+        512,
+        1,
+        1
+      ],
+      "resnet.encoder.stages.3.layers.2.layer.2.normalization.bias": [
+        2048
+      ],
+      "resnet.encoder.stages.3.layers.2.layer.2.normalization.weight": [
+        2048
+      ]
+    }
+  },
+  "SupViT": {
+    "parameter_keys": [
+      "classifier.bias",
+      "classifier.weight",
+      "vit.embeddings.cls_token",
+      "vit.embeddings.patch_embeddings.projection.bias",
+      "vit.embeddings.patch_embeddings.projection.weight",
+      "vit.embeddings.position_embeddings",
+      "vit.encoder.layer.0.attention.attention.key.bias",
+      "vit.encoder.layer.0.attention.attention.key.weight",
+      "vit.encoder.layer.0.attention.attention.query.bias",
+      "vit.encoder.layer.0.attention.attention.query.weight",
+      "vit.encoder.layer.0.attention.attention.value.bias",
+      "vit.encoder.layer.0.attention.attention.value.weight",
+      "vit.encoder.layer.0.attention.output.dense.bias",
+      "vit.encoder.layer.0.attention.output.dense.weight",
+      "vit.encoder.layer.0.intermediate.dense.bias",
+      "vit.encoder.layer.0.intermediate.dense.weight",
+      "vit.encoder.layer.0.layernorm_after.bias",
+      "vit.encoder.layer.0.layernorm_after.weight",
+      "vit.encoder.layer.0.layernorm_before.bias",
+      "vit.encoder.layer.0.layernorm_before.weight",
+      "vit.encoder.layer.0.output.dense.bias",
+      "vit.encoder.layer.0.output.dense.weight",
+      "vit.encoder.layer.1.attention.attention.key.bias",
+      "vit.encoder.layer.1.attention.attention.key.weight",
+      "vit.encoder.layer.1.attention.attention.query.bias",
+      "vit.encoder.layer.1.attention.attention.query.weight",
+      "vit.encoder.layer.1.attention.attention.value.bias",
+      "vit.encoder.layer.1.attention.attention.value.weight",
+      "vit.encoder.layer.1.attention.output.dense.bias",
+      "vit.encoder.layer.1.attention.output.dense.weight",
+      "vit.encoder.layer.1.intermediate.dense.bias",
+      "vit.encoder.layer.1.intermediate.dense.weight",
+      "vit.encoder.layer.1.layernorm_after.bias",
+      "vit.encoder.layer.1.layernorm_after.weight",
+      "vit.encoder.layer.1.layernorm_before.bias",
+      "vit.encoder.layer.1.layernorm_before.weight",
+      "vit.encoder.layer.1.output.dense.bias",
+      "vit.encoder.layer.1.output.dense.weight",
+      "vit.encoder.layer.10.attention.attention.key.bias",
+      "vit.encoder.layer.10.attention.attention.key.weight",
+      "vit.encoder.layer.10.attention.attention.query.bias",
+      "vit.encoder.layer.10.attention.attention.query.weight",
+      "vit.encoder.layer.10.attention.attention.value.bias",
+      "vit.encoder.layer.10.attention.attention.value.weight",
+      "vit.encoder.layer.10.attention.output.dense.bias",
+      "vit.encoder.layer.10.attention.output.dense.weight",
+      "vit.encoder.layer.10.intermediate.dense.bias",
+      "vit.encoder.layer.10.intermediate.dense.weight",
+      "vit.encoder.layer.10.layernorm_after.bias",
+      "vit.encoder.layer.10.layernorm_after.weight",
+      "vit.encoder.layer.10.layernorm_before.bias",
+      "vit.encoder.layer.10.layernorm_before.weight",
+      "vit.encoder.layer.10.output.dense.bias",
+      "vit.encoder.layer.10.output.dense.weight",
+      "vit.encoder.layer.11.attention.attention.key.bias",
+      "vit.encoder.layer.11.attention.attention.key.weight",
+      "vit.encoder.layer.11.attention.attention.query.bias",
+      "vit.encoder.layer.11.attention.attention.query.weight",
+      "vit.encoder.layer.11.attention.attention.value.bias",
+      "vit.encoder.layer.11.attention.attention.value.weight",
+      "vit.encoder.layer.11.attention.output.dense.bias",
+      "vit.encoder.layer.11.attention.output.dense.weight",
+      "vit.encoder.layer.11.intermediate.dense.bias",
+      "vit.encoder.layer.11.intermediate.dense.weight",
+      "vit.encoder.layer.11.layernorm_after.bias",
+      "vit.encoder.layer.11.layernorm_after.weight",
+      "vit.encoder.layer.11.layernorm_before.bias",
+      "vit.encoder.layer.11.layernorm_before.weight",
+      "vit.encoder.layer.11.output.dense.bias",
+      "vit.encoder.layer.11.output.dense.weight",
+      "vit.encoder.layer.2.attention.attention.key.bias",
+      "vit.encoder.layer.2.attention.attention.key.weight",
+      "vit.encoder.layer.2.attention.attention.query.bias",
+      "vit.encoder.layer.2.attention.attention.query.weight",
+      "vit.encoder.layer.2.attention.attention.value.bias",
+      "vit.encoder.layer.2.attention.attention.value.weight",
+      "vit.encoder.layer.2.attention.output.dense.bias",
+      "vit.encoder.layer.2.attention.output.dense.weight",
+      "vit.encoder.layer.2.intermediate.dense.bias",
+      "vit.encoder.layer.2.intermediate.dense.weight",
+      "vit.encoder.layer.2.layernorm_after.bias",
+      "vit.encoder.layer.2.layernorm_after.weight",
+      "vit.encoder.layer.2.layernorm_before.bias",
+      "vit.encoder.layer.2.layernorm_before.weight",
+      "vit.encoder.layer.2.output.dense.bias",
+      "vit.encoder.layer.2.output.dense.weight",
+      "vit.encoder.layer.3.attention.attention.key.bias",
+      "vit.encoder.layer.3.attention.attention.key.weight",
+      "vit.encoder.layer.3.attention.attention.query.bias",
+      "vit.encoder.layer.3.attention.attention.query.weight",
+      "vit.encoder.layer.3.attention.attention.value.bias",
+      "vit.encoder.layer.3.attention.attention.value.weight",
+      "vit.encoder.layer.3.attention.output.dense.bias",
+      "vit.encoder.layer.3.attention.output.dense.weight",
+      "vit.encoder.layer.3.intermediate.dense.bias",
+      "vit.encoder.layer.3.intermediate.dense.weight",
+      "vit.encoder.layer.3.layernorm_after.bias",
+      "vit.encoder.layer.3.layernorm_after.weight",
+      "vit.encoder.layer.3.layernorm_before.bias",
+      "vit.encoder.layer.3.layernorm_before.weight",
+      "vit.encoder.layer.3.output.dense.bias",
+      "vit.encoder.layer.3.output.dense.weight",
+      "vit.encoder.layer.4.attention.attention.key.bias",
+      "vit.encoder.layer.4.attention.attention.key.weight",
+      "vit.encoder.layer.4.attention.attention.query.bias",
+      "vit.encoder.layer.4.attention.attention.query.weight",
+      "vit.encoder.layer.4.attention.attention.value.bias",
+      "vit.encoder.layer.4.attention.attention.value.weight",
+      "vit.encoder.layer.4.attention.output.dense.bias",
+      "vit.encoder.layer.4.attention.output.dense.weight",
+      "vit.encoder.layer.4.intermediate.dense.bias",
+      "vit.encoder.layer.4.intermediate.dense.weight",
+      "vit.encoder.layer.4.layernorm_after.bias",
+      "vit.encoder.layer.4.layernorm_after.weight",
+      "vit.encoder.layer.4.layernorm_before.bias",
+      "vit.encoder.layer.4.layernorm_before.weight",
+      "vit.encoder.layer.4.output.dense.bias",
+      "vit.encoder.layer.4.output.dense.weight",
+      "vit.encoder.layer.5.attention.attention.key.bias",
+      "vit.encoder.layer.5.attention.attention.key.weight",
+      "vit.encoder.layer.5.attention.attention.query.bias",
+      "vit.encoder.layer.5.attention.attention.query.weight",
+      "vit.encoder.layer.5.attention.attention.value.bias",
+      "vit.encoder.layer.5.attention.attention.value.weight",
+      "vit.encoder.layer.5.attention.output.dense.bias",
+      "vit.encoder.layer.5.attention.output.dense.weight",
+      "vit.encoder.layer.5.intermediate.dense.bias",
+      "vit.encoder.layer.5.intermediate.dense.weight",
+      "vit.encoder.layer.5.layernorm_after.bias",
+      "vit.encoder.layer.5.layernorm_after.weight",
+      "vit.encoder.layer.5.layernorm_before.bias",
+      "vit.encoder.layer.5.layernorm_before.weight",
+      "vit.encoder.layer.5.output.dense.bias",
+      "vit.encoder.layer.5.output.dense.weight",
+      "vit.encoder.layer.6.attention.attention.key.bias",
+      "vit.encoder.layer.6.attention.attention.key.weight",
+      "vit.encoder.layer.6.attention.attention.query.bias",
+      "vit.encoder.layer.6.attention.attention.query.weight",
+      "vit.encoder.layer.6.attention.attention.value.bias",
+      "vit.encoder.layer.6.attention.attention.value.weight",
+      "vit.encoder.layer.6.attention.output.dense.bias",
+      "vit.encoder.layer.6.attention.output.dense.weight",
+      "vit.encoder.layer.6.intermediate.dense.bias",
+      "vit.encoder.layer.6.intermediate.dense.weight",
+      "vit.encoder.layer.6.layernorm_after.bias",
+      "vit.encoder.layer.6.layernorm_after.weight",
+      "vit.encoder.layer.6.layernorm_before.bias",
+      "vit.encoder.layer.6.layernorm_before.weight",
+      "vit.encoder.layer.6.output.dense.bias",
+      "vit.encoder.layer.6.output.dense.weight",
+      "vit.encoder.layer.7.attention.attention.key.bias",
+      "vit.encoder.layer.7.attention.attention.key.weight",
+      "vit.encoder.layer.7.attention.attention.query.bias",
+      "vit.encoder.layer.7.attention.attention.query.weight",
+      "vit.encoder.layer.7.attention.attention.value.bias",
+      "vit.encoder.layer.7.attention.attention.value.weight",
+      "vit.encoder.layer.7.attention.output.dense.bias",
+      "vit.encoder.layer.7.attention.output.dense.weight",
+      "vit.encoder.layer.7.intermediate.dense.bias",
+      "vit.encoder.layer.7.intermediate.dense.weight",
+      "vit.encoder.layer.7.layernorm_after.bias",
+      "vit.encoder.layer.7.layernorm_after.weight",
+      "vit.encoder.layer.7.layernorm_before.bias",
+      "vit.encoder.layer.7.layernorm_before.weight",
+      "vit.encoder.layer.7.output.dense.bias",
+      "vit.encoder.layer.7.output.dense.weight",
+      "vit.encoder.layer.8.attention.attention.key.bias",
+      "vit.encoder.layer.8.attention.attention.key.weight",
+      "vit.encoder.layer.8.attention.attention.query.bias",
+      "vit.encoder.layer.8.attention.attention.query.weight",
+      "vit.encoder.layer.8.attention.attention.value.bias",
+      "vit.encoder.layer.8.attention.attention.value.weight",
+      "vit.encoder.layer.8.attention.output.dense.bias",
+      "vit.encoder.layer.8.attention.output.dense.weight",
+      "vit.encoder.layer.8.intermediate.dense.bias",
+      "vit.encoder.layer.8.intermediate.dense.weight",
+      "vit.encoder.layer.8.layernorm_after.bias",
+      "vit.encoder.layer.8.layernorm_after.weight",
+      "vit.encoder.layer.8.layernorm_before.bias",
+      "vit.encoder.layer.8.layernorm_before.weight",
+      "vit.encoder.layer.8.output.dense.bias",
+      "vit.encoder.layer.8.output.dense.weight",
+      "vit.encoder.layer.9.attention.attention.key.bias",
+      "vit.encoder.layer.9.attention.attention.key.weight",
+      "vit.encoder.layer.9.attention.attention.query.bias",
+      "vit.encoder.layer.9.attention.attention.query.weight",
+      "vit.encoder.layer.9.attention.attention.value.bias",
+      "vit.encoder.layer.9.attention.attention.value.weight",
+      "vit.encoder.layer.9.attention.output.dense.bias",
+      "vit.encoder.layer.9.attention.output.dense.weight",
+      "vit.encoder.layer.9.intermediate.dense.bias",
+      "vit.encoder.layer.9.intermediate.dense.weight",
+      "vit.encoder.layer.9.layernorm_after.bias",
+      "vit.encoder.layer.9.layernorm_after.weight",
+      "vit.encoder.layer.9.layernorm_before.bias",
+      "vit.encoder.layer.9.layernorm_before.weight",
+      "vit.encoder.layer.9.output.dense.bias",
+      "vit.encoder.layer.9.output.dense.weight",
+      "vit.layernorm.bias",
+      "vit.layernorm.weight"
+    ],
+    "shapes": {
+      "classifier.bias": [
+        50
+      ],
+      "classifier.weight": [
+        50,
+        768
+      ],
+      "vit.embeddings.cls_token": [
+        1,
+        1,
+        768
+      ],
+      "vit.embeddings.patch_embeddings.projection.bias": [
+        768
+      ],
+      "vit.embeddings.patch_embeddings.projection.weight": [
+        768,
+        3,
+        16,
+        16
+      ],
+      "vit.embeddings.position_embeddings": [
+        1,
+        197,
+        768
+      ],
+      "vit.encoder.layer.0.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.0.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.0.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.0.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.0.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.0.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.0.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.0.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.0.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.0.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.0.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.0.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.0.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.0.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.0.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.0.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.1.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.1.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.1.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.1.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.1.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.1.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.1.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.1.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.1.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.1.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.1.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.1.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.1.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.1.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.1.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.1.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.10.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.10.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.10.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.10.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.10.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.10.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.10.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.10.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.10.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.10.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.10.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.10.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.10.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.10.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.10.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.10.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.11.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.11.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.11.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.11.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.11.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.11.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.11.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.11.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.11.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.11.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.11.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.11.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.11.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.11.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.11.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.11.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.2.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.2.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.2.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.2.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.2.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.2.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.2.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.2.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.2.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.2.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.2.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.2.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.2.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.2.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.2.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.2.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.3.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.3.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.3.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.3.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.3.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.3.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.3.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.3.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.3.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.3.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.3.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.3.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.3.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.3.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.3.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.3.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.4.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.4.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.4.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.4.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.4.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.4.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.4.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.4.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.4.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.4.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.4.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.4.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.4.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.4.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.4.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.4.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.5.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.5.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.5.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.5.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.5.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.5.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.5.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.5.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.5.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.5.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.5.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.5.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.5.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.5.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.5.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.5.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.6.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.6.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.6.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.6.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.6.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.6.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.6.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.6.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.6.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.6.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.6.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.6.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.6.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.6.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.6.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.6.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.7.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.7.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.7.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.7.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.7.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.7.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.7.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.7.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.7.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.7.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.7.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.7.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.7.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.7.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.7.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.7.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.8.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.8.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.8.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.8.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.8.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.8.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.8.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.8.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.8.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.8.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.8.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.8.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.8.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.8.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.8.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.8.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.9.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.9.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.9.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.9.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.9.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.9.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.9.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.9.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.9.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.9.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.9.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.9.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.9.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.9.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.9.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.9.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.layernorm.bias": [
+        768
+      ],
+      "vit.layernorm.weight": [
+        768
+      ]
+    }
+  },
+  "MAE": {
+    "parameter_keys": [
+      "classifier.bias",
+      "classifier.weight",
+      "vit.embeddings.cls_token",
+      "vit.embeddings.patch_embeddings.projection.bias",
+      "vit.embeddings.patch_embeddings.projection.weight",
+      "vit.embeddings.position_embeddings",
+      "vit.encoder.layer.0.attention.attention.key.bias",
+      "vit.encoder.layer.0.attention.attention.key.weight",
+      "vit.encoder.layer.0.attention.attention.query.bias",
+      "vit.encoder.layer.0.attention.attention.query.weight",
+      "vit.encoder.layer.0.attention.attention.value.bias",
+      "vit.encoder.layer.0.attention.attention.value.weight",
+      "vit.encoder.layer.0.attention.output.dense.bias",
+      "vit.encoder.layer.0.attention.output.dense.weight",
+      "vit.encoder.layer.0.intermediate.dense.bias",
+      "vit.encoder.layer.0.intermediate.dense.weight",
+      "vit.encoder.layer.0.layernorm_after.bias",
+      "vit.encoder.layer.0.layernorm_after.weight",
+      "vit.encoder.layer.0.layernorm_before.bias",
+      "vit.encoder.layer.0.layernorm_before.weight",
+      "vit.encoder.layer.0.output.dense.bias",
+      "vit.encoder.layer.0.output.dense.weight",
+      "vit.encoder.layer.1.attention.attention.key.bias",
+      "vit.encoder.layer.1.attention.attention.key.weight",
+      "vit.encoder.layer.1.attention.attention.query.bias",
+      "vit.encoder.layer.1.attention.attention.query.weight",
+      "vit.encoder.layer.1.attention.attention.value.bias",
+      "vit.encoder.layer.1.attention.attention.value.weight",
+      "vit.encoder.layer.1.attention.output.dense.bias",
+      "vit.encoder.layer.1.attention.output.dense.weight",
+      "vit.encoder.layer.1.intermediate.dense.bias",
+      "vit.encoder.layer.1.intermediate.dense.weight",
+      "vit.encoder.layer.1.layernorm_after.bias",
+      "vit.encoder.layer.1.layernorm_after.weight",
+      "vit.encoder.layer.1.layernorm_before.bias",
+      "vit.encoder.layer.1.layernorm_before.weight",
+      "vit.encoder.layer.1.output.dense.bias",
+      "vit.encoder.layer.1.output.dense.weight",
+      "vit.encoder.layer.10.attention.attention.key.bias",
+      "vit.encoder.layer.10.attention.attention.key.weight",
+      "vit.encoder.layer.10.attention.attention.query.bias",
+      "vit.encoder.layer.10.attention.attention.query.weight",
+      "vit.encoder.layer.10.attention.attention.value.bias",
+      "vit.encoder.layer.10.attention.attention.value.weight",
+      "vit.encoder.layer.10.attention.output.dense.bias",
+      "vit.encoder.layer.10.attention.output.dense.weight",
+      "vit.encoder.layer.10.intermediate.dense.bias",
+      "vit.encoder.layer.10.intermediate.dense.weight",
+      "vit.encoder.layer.10.layernorm_after.bias",
+      "vit.encoder.layer.10.layernorm_after.weight",
+      "vit.encoder.layer.10.layernorm_before.bias",
+      "vit.encoder.layer.10.layernorm_before.weight",
+      "vit.encoder.layer.10.output.dense.bias",
+      "vit.encoder.layer.10.output.dense.weight",
+      "vit.encoder.layer.11.attention.attention.key.bias",
+      "vit.encoder.layer.11.attention.attention.key.weight",
+      "vit.encoder.layer.11.attention.attention.query.bias",
+      "vit.encoder.layer.11.attention.attention.query.weight",
+      "vit.encoder.layer.11.attention.attention.value.bias",
+      "vit.encoder.layer.11.attention.attention.value.weight",
+      "vit.encoder.layer.11.attention.output.dense.bias",
+      "vit.encoder.layer.11.attention.output.dense.weight",
+      "vit.encoder.layer.11.intermediate.dense.bias",
+      "vit.encoder.layer.11.intermediate.dense.weight",
+      "vit.encoder.layer.11.layernorm_after.bias",
+      "vit.encoder.layer.11.layernorm_after.weight",
+      "vit.encoder.layer.11.layernorm_before.bias",
+      "vit.encoder.layer.11.layernorm_before.weight",
+      "vit.encoder.layer.11.output.dense.bias",
+      "vit.encoder.layer.11.output.dense.weight",
+      "vit.encoder.layer.2.attention.attention.key.bias",
+      "vit.encoder.layer.2.attention.attention.key.weight",
+      "vit.encoder.layer.2.attention.attention.query.bias",
+      "vit.encoder.layer.2.attention.attention.query.weight",
+      "vit.encoder.layer.2.attention.attention.value.bias",
+      "vit.encoder.layer.2.attention.attention.value.weight",
+      "vit.encoder.layer.2.attention.output.dense.bias",
+      "vit.encoder.layer.2.attention.output.dense.weight",
+      "vit.encoder.layer.2.intermediate.dense.bias",
+      "vit.encoder.layer.2.intermediate.dense.weight",
+      "vit.encoder.layer.2.layernorm_after.bias",
+      "vit.encoder.layer.2.layernorm_after.weight",
+      "vit.encoder.layer.2.layernorm_before.bias",
+      "vit.encoder.layer.2.layernorm_before.weight",
+      "vit.encoder.layer.2.output.dense.bias",
+      "vit.encoder.layer.2.output.dense.weight",
+      "vit.encoder.layer.3.attention.attention.key.bias",
+      "vit.encoder.layer.3.attention.attention.key.weight",
+      "vit.encoder.layer.3.attention.attention.query.bias",
+      "vit.encoder.layer.3.attention.attention.query.weight",
+      "vit.encoder.layer.3.attention.attention.value.bias",
+      "vit.encoder.layer.3.attention.attention.value.weight",
+      "vit.encoder.layer.3.attention.output.dense.bias",
+      "vit.encoder.layer.3.attention.output.dense.weight",
+      "vit.encoder.layer.3.intermediate.dense.bias",
+      "vit.encoder.layer.3.intermediate.dense.weight",
+      "vit.encoder.layer.3.layernorm_after.bias",
+      "vit.encoder.layer.3.layernorm_after.weight",
+      "vit.encoder.layer.3.layernorm_before.bias",
+      "vit.encoder.layer.3.layernorm_before.weight",
+      "vit.encoder.layer.3.output.dense.bias",
+      "vit.encoder.layer.3.output.dense.weight",
+      "vit.encoder.layer.4.attention.attention.key.bias",
+      "vit.encoder.layer.4.attention.attention.key.weight",
+      "vit.encoder.layer.4.attention.attention.query.bias",
+      "vit.encoder.layer.4.attention.attention.query.weight",
+      "vit.encoder.layer.4.attention.attention.value.bias",
+      "vit.encoder.layer.4.attention.attention.value.weight",
+      "vit.encoder.layer.4.attention.output.dense.bias",
+      "vit.encoder.layer.4.attention.output.dense.weight",
+      "vit.encoder.layer.4.intermediate.dense.bias",
+      "vit.encoder.layer.4.intermediate.dense.weight",
+      "vit.encoder.layer.4.layernorm_after.bias",
+      "vit.encoder.layer.4.layernorm_after.weight",
+      "vit.encoder.layer.4.layernorm_before.bias",
+      "vit.encoder.layer.4.layernorm_before.weight",
+      "vit.encoder.layer.4.output.dense.bias",
+      "vit.encoder.layer.4.output.dense.weight",
+      "vit.encoder.layer.5.attention.attention.key.bias",
+      "vit.encoder.layer.5.attention.attention.key.weight",
+      "vit.encoder.layer.5.attention.attention.query.bias",
+      "vit.encoder.layer.5.attention.attention.query.weight",
+      "vit.encoder.layer.5.attention.attention.value.bias",
+      "vit.encoder.layer.5.attention.attention.value.weight",
+      "vit.encoder.layer.5.attention.output.dense.bias",
+      "vit.encoder.layer.5.attention.output.dense.weight",
+      "vit.encoder.layer.5.intermediate.dense.bias",
+      "vit.encoder.layer.5.intermediate.dense.weight",
+      "vit.encoder.layer.5.layernorm_after.bias",
+      "vit.encoder.layer.5.layernorm_after.weight",
+      "vit.encoder.layer.5.layernorm_before.bias",
+      "vit.encoder.layer.5.layernorm_before.weight",
+      "vit.encoder.layer.5.output.dense.bias",
+      "vit.encoder.layer.5.output.dense.weight",
+      "vit.encoder.layer.6.attention.attention.key.bias",
+      "vit.encoder.layer.6.attention.attention.key.weight",
+      "vit.encoder.layer.6.attention.attention.query.bias",
+      "vit.encoder.layer.6.attention.attention.query.weight",
+      "vit.encoder.layer.6.attention.attention.value.bias",
+      "vit.encoder.layer.6.attention.attention.value.weight",
+      "vit.encoder.layer.6.attention.output.dense.bias",
+      "vit.encoder.layer.6.attention.output.dense.weight",
+      "vit.encoder.layer.6.intermediate.dense.bias",
+      "vit.encoder.layer.6.intermediate.dense.weight",
+      "vit.encoder.layer.6.layernorm_after.bias",
+      "vit.encoder.layer.6.layernorm_after.weight",
+      "vit.encoder.layer.6.layernorm_before.bias",
+      "vit.encoder.layer.6.layernorm_before.weight",
+      "vit.encoder.layer.6.output.dense.bias",
+      "vit.encoder.layer.6.output.dense.weight",
+      "vit.encoder.layer.7.attention.attention.key.bias",
+      "vit.encoder.layer.7.attention.attention.key.weight",
+      "vit.encoder.layer.7.attention.attention.query.bias",
+      "vit.encoder.layer.7.attention.attention.query.weight",
+      "vit.encoder.layer.7.attention.attention.value.bias",
+      "vit.encoder.layer.7.attention.attention.value.weight",
+      "vit.encoder.layer.7.attention.output.dense.bias",
+      "vit.encoder.layer.7.attention.output.dense.weight",
+      "vit.encoder.layer.7.intermediate.dense.bias",
+      "vit.encoder.layer.7.intermediate.dense.weight",
+      "vit.encoder.layer.7.layernorm_after.bias",
+      "vit.encoder.layer.7.layernorm_after.weight",
+      "vit.encoder.layer.7.layernorm_before.bias",
+      "vit.encoder.layer.7.layernorm_before.weight",
+      "vit.encoder.layer.7.output.dense.bias",
+      "vit.encoder.layer.7.output.dense.weight",
+      "vit.encoder.layer.8.attention.attention.key.bias",
+      "vit.encoder.layer.8.attention.attention.key.weight",
+      "vit.encoder.layer.8.attention.attention.query.bias",
+      "vit.encoder.layer.8.attention.attention.query.weight",
+      "vit.encoder.layer.8.attention.attention.value.bias",
+      "vit.encoder.layer.8.attention.attention.value.weight",
+      "vit.encoder.layer.8.attention.output.dense.bias",
+      "vit.encoder.layer.8.attention.output.dense.weight",
+      "vit.encoder.layer.8.intermediate.dense.bias",
+      "vit.encoder.layer.8.intermediate.dense.weight",
+      "vit.encoder.layer.8.layernorm_after.bias",
+      "vit.encoder.layer.8.layernorm_after.weight",
+      "vit.encoder.layer.8.layernorm_before.bias",
+      "vit.encoder.layer.8.layernorm_before.weight",
+      "vit.encoder.layer.8.output.dense.bias",
+      "vit.encoder.layer.8.output.dense.weight",
+      "vit.encoder.layer.9.attention.attention.key.bias",
+      "vit.encoder.layer.9.attention.attention.key.weight",
+      "vit.encoder.layer.9.attention.attention.query.bias",
+      "vit.encoder.layer.9.attention.attention.query.weight",
+      "vit.encoder.layer.9.attention.attention.value.bias",
+      "vit.encoder.layer.9.attention.attention.value.weight",
+      "vit.encoder.layer.9.attention.output.dense.bias",
+      "vit.encoder.layer.9.attention.output.dense.weight",
+      "vit.encoder.layer.9.intermediate.dense.bias",
+      "vit.encoder.layer.9.intermediate.dense.weight",
+      "vit.encoder.layer.9.layernorm_after.bias",
+      "vit.encoder.layer.9.layernorm_after.weight",
+      "vit.encoder.layer.9.layernorm_before.bias",
+      "vit.encoder.layer.9.layernorm_before.weight",
+      "vit.encoder.layer.9.output.dense.bias",
+      "vit.encoder.layer.9.output.dense.weight",
+      "vit.layernorm.bias",
+      "vit.layernorm.weight"
+    ],
+    "shapes": {
+      "classifier.bias": [
+        50
+      ],
+      "classifier.weight": [
+        50,
+        768
+      ],
+      "vit.embeddings.cls_token": [
+        1,
+        1,
+        768
+      ],
+      "vit.embeddings.patch_embeddings.projection.bias": [
+        768
+      ],
+      "vit.embeddings.patch_embeddings.projection.weight": [
+        768,
+        3,
+        16,
+        16
+      ],
+      "vit.embeddings.position_embeddings": [
+        1,
+        197,
+        768
+      ],
+      "vit.encoder.layer.0.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.0.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.0.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.0.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.0.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.0.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.0.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.0.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.0.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.0.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.0.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.0.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.0.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.0.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.0.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.0.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.1.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.1.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.1.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.1.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.1.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.1.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.1.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.1.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.1.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.1.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.1.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.1.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.1.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.1.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.1.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.1.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.10.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.10.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.10.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.10.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.10.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.10.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.10.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.10.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.10.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.10.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.10.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.10.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.10.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.10.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.10.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.10.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.11.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.11.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.11.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.11.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.11.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.11.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.11.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.11.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.11.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.11.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.11.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.11.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.11.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.11.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.11.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.11.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.2.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.2.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.2.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.2.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.2.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.2.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.2.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.2.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.2.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.2.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.2.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.2.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.2.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.2.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.2.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.2.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.3.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.3.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.3.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.3.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.3.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.3.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.3.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.3.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.3.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.3.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.3.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.3.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.3.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.3.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.3.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.3.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.4.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.4.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.4.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.4.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.4.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.4.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.4.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.4.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.4.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.4.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.4.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.4.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.4.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.4.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.4.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.4.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.5.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.5.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.5.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.5.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.5.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.5.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.5.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.5.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.5.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.5.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.5.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.5.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.5.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.5.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.5.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.5.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.6.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.6.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.6.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.6.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.6.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.6.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.6.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.6.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.6.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.6.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.6.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.6.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.6.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.6.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.6.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.6.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.7.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.7.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.7.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.7.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.7.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.7.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.7.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.7.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.7.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.7.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.7.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.7.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.7.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.7.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.7.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.7.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.8.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.8.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.8.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.8.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.8.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.8.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.8.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.8.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.8.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.8.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.8.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.8.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.8.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.8.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.8.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.8.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.9.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.9.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.9.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.9.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.9.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.9.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.9.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.9.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.9.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.9.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.9.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.9.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.9.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.9.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.9.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.9.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.layernorm.bias": [
+        768
+      ],
+      "vit.layernorm.weight": [
+        768
+      ]
+    }
+  },
+  "DINO": {
+    "parameter_keys": [
+      "classifier.bias",
+      "classifier.weight",
+      "vit.embeddings.cls_token",
+      "vit.embeddings.patch_embeddings.projection.bias",
+      "vit.embeddings.patch_embeddings.projection.weight",
+      "vit.embeddings.position_embeddings",
+      "vit.encoder.layer.0.attention.attention.key.bias",
+      "vit.encoder.layer.0.attention.attention.key.weight",
+      "vit.encoder.layer.0.attention.attention.query.bias",
+      "vit.encoder.layer.0.attention.attention.query.weight",
+      "vit.encoder.layer.0.attention.attention.value.bias",
+      "vit.encoder.layer.0.attention.attention.value.weight",
+      "vit.encoder.layer.0.attention.output.dense.bias",
+      "vit.encoder.layer.0.attention.output.dense.weight",
+      "vit.encoder.layer.0.intermediate.dense.bias",
+      "vit.encoder.layer.0.intermediate.dense.weight",
+      "vit.encoder.layer.0.layernorm_after.bias",
+      "vit.encoder.layer.0.layernorm_after.weight",
+      "vit.encoder.layer.0.layernorm_before.bias",
+      "vit.encoder.layer.0.layernorm_before.weight",
+      "vit.encoder.layer.0.output.dense.bias",
+      "vit.encoder.layer.0.output.dense.weight",
+      "vit.encoder.layer.1.attention.attention.key.bias",
+      "vit.encoder.layer.1.attention.attention.key.weight",
+      "vit.encoder.layer.1.attention.attention.query.bias",
+      "vit.encoder.layer.1.attention.attention.query.weight",
+      "vit.encoder.layer.1.attention.attention.value.bias",
+      "vit.encoder.layer.1.attention.attention.value.weight",
+      "vit.encoder.layer.1.attention.output.dense.bias",
+      "vit.encoder.layer.1.attention.output.dense.weight",
+      "vit.encoder.layer.1.intermediate.dense.bias",
+      "vit.encoder.layer.1.intermediate.dense.weight",
+      "vit.encoder.layer.1.layernorm_after.bias",
+      "vit.encoder.layer.1.layernorm_after.weight",
+      "vit.encoder.layer.1.layernorm_before.bias",
+      "vit.encoder.layer.1.layernorm_before.weight",
+      "vit.encoder.layer.1.output.dense.bias",
+      "vit.encoder.layer.1.output.dense.weight",
+      "vit.encoder.layer.10.attention.attention.key.bias",
+      "vit.encoder.layer.10.attention.attention.key.weight",
+      "vit.encoder.layer.10.attention.attention.query.bias",
+      "vit.encoder.layer.10.attention.attention.query.weight",
+      "vit.encoder.layer.10.attention.attention.value.bias",
+      "vit.encoder.layer.10.attention.attention.value.weight",
+      "vit.encoder.layer.10.attention.output.dense.bias",
+      "vit.encoder.layer.10.attention.output.dense.weight",
+      "vit.encoder.layer.10.intermediate.dense.bias",
+      "vit.encoder.layer.10.intermediate.dense.weight",
+      "vit.encoder.layer.10.layernorm_after.bias",
+      "vit.encoder.layer.10.layernorm_after.weight",
+      "vit.encoder.layer.10.layernorm_before.bias",
+      "vit.encoder.layer.10.layernorm_before.weight",
+      "vit.encoder.layer.10.output.dense.bias",
+      "vit.encoder.layer.10.output.dense.weight",
+      "vit.encoder.layer.11.attention.attention.key.bias",
+      "vit.encoder.layer.11.attention.attention.key.weight",
+      "vit.encoder.layer.11.attention.attention.query.bias",
+      "vit.encoder.layer.11.attention.attention.query.weight",
+      "vit.encoder.layer.11.attention.attention.value.bias",
+      "vit.encoder.layer.11.attention.attention.value.weight",
+      "vit.encoder.layer.11.attention.output.dense.bias",
+      "vit.encoder.layer.11.attention.output.dense.weight",
+      "vit.encoder.layer.11.intermediate.dense.bias",
+      "vit.encoder.layer.11.intermediate.dense.weight",
+      "vit.encoder.layer.11.layernorm_after.bias",
+      "vit.encoder.layer.11.layernorm_after.weight",
+      "vit.encoder.layer.11.layernorm_before.bias",
+      "vit.encoder.layer.11.layernorm_before.weight",
+      "vit.encoder.layer.11.output.dense.bias",
+      "vit.encoder.layer.11.output.dense.weight",
+      "vit.encoder.layer.2.attention.attention.key.bias",
+      "vit.encoder.layer.2.attention.attention.key.weight",
+      "vit.encoder.layer.2.attention.attention.query.bias",
+      "vit.encoder.layer.2.attention.attention.query.weight",
+      "vit.encoder.layer.2.attention.attention.value.bias",
+      "vit.encoder.layer.2.attention.attention.value.weight",
+      "vit.encoder.layer.2.attention.output.dense.bias",
+      "vit.encoder.layer.2.attention.output.dense.weight",
+      "vit.encoder.layer.2.intermediate.dense.bias",
+      "vit.encoder.layer.2.intermediate.dense.weight",
+      "vit.encoder.layer.2.layernorm_after.bias",
+      "vit.encoder.layer.2.layernorm_after.weight",
+      "vit.encoder.layer.2.layernorm_before.bias",
+      "vit.encoder.layer.2.layernorm_before.weight",
+      "vit.encoder.layer.2.output.dense.bias",
+      "vit.encoder.layer.2.output.dense.weight",
+      "vit.encoder.layer.3.attention.attention.key.bias",
+      "vit.encoder.layer.3.attention.attention.key.weight",
+      "vit.encoder.layer.3.attention.attention.query.bias",
+      "vit.encoder.layer.3.attention.attention.query.weight",
+      "vit.encoder.layer.3.attention.attention.value.bias",
+      "vit.encoder.layer.3.attention.attention.value.weight",
+      "vit.encoder.layer.3.attention.output.dense.bias",
+      "vit.encoder.layer.3.attention.output.dense.weight",
+      "vit.encoder.layer.3.intermediate.dense.bias",
+      "vit.encoder.layer.3.intermediate.dense.weight",
+      "vit.encoder.layer.3.layernorm_after.bias",
+      "vit.encoder.layer.3.layernorm_after.weight",
+      "vit.encoder.layer.3.layernorm_before.bias",
+      "vit.encoder.layer.3.layernorm_before.weight",
+      "vit.encoder.layer.3.output.dense.bias",
+      "vit.encoder.layer.3.output.dense.weight",
+      "vit.encoder.layer.4.attention.attention.key.bias",
+      "vit.encoder.layer.4.attention.attention.key.weight",
+      "vit.encoder.layer.4.attention.attention.query.bias",
+      "vit.encoder.layer.4.attention.attention.query.weight",
+      "vit.encoder.layer.4.attention.attention.value.bias",
+      "vit.encoder.layer.4.attention.attention.value.weight",
+      "vit.encoder.layer.4.attention.output.dense.bias",
+      "vit.encoder.layer.4.attention.output.dense.weight",
+      "vit.encoder.layer.4.intermediate.dense.bias",
+      "vit.encoder.layer.4.intermediate.dense.weight",
+      "vit.encoder.layer.4.layernorm_after.bias",
+      "vit.encoder.layer.4.layernorm_after.weight",
+      "vit.encoder.layer.4.layernorm_before.bias",
+      "vit.encoder.layer.4.layernorm_before.weight",
+      "vit.encoder.layer.4.output.dense.bias",
+      "vit.encoder.layer.4.output.dense.weight",
+      "vit.encoder.layer.5.attention.attention.key.bias",
+      "vit.encoder.layer.5.attention.attention.key.weight",
+      "vit.encoder.layer.5.attention.attention.query.bias",
+      "vit.encoder.layer.5.attention.attention.query.weight",
+      "vit.encoder.layer.5.attention.attention.value.bias",
+      "vit.encoder.layer.5.attention.attention.value.weight",
+      "vit.encoder.layer.5.attention.output.dense.bias",
+      "vit.encoder.layer.5.attention.output.dense.weight",
+      "vit.encoder.layer.5.intermediate.dense.bias",
+      "vit.encoder.layer.5.intermediate.dense.weight",
+      "vit.encoder.layer.5.layernorm_after.bias",
+      "vit.encoder.layer.5.layernorm_after.weight",
+      "vit.encoder.layer.5.layernorm_before.bias",
+      "vit.encoder.layer.5.layernorm_before.weight",
+      "vit.encoder.layer.5.output.dense.bias",
+      "vit.encoder.layer.5.output.dense.weight",
+      "vit.encoder.layer.6.attention.attention.key.bias",
+      "vit.encoder.layer.6.attention.attention.key.weight",
+      "vit.encoder.layer.6.attention.attention.query.bias",
+      "vit.encoder.layer.6.attention.attention.query.weight",
+      "vit.encoder.layer.6.attention.attention.value.bias",
+      "vit.encoder.layer.6.attention.attention.value.weight",
+      "vit.encoder.layer.6.attention.output.dense.bias",
+      "vit.encoder.layer.6.attention.output.dense.weight",
+      "vit.encoder.layer.6.intermediate.dense.bias",
+      "vit.encoder.layer.6.intermediate.dense.weight",
+      "vit.encoder.layer.6.layernorm_after.bias",
+      "vit.encoder.layer.6.layernorm_after.weight",
+      "vit.encoder.layer.6.layernorm_before.bias",
+      "vit.encoder.layer.6.layernorm_before.weight",
+      "vit.encoder.layer.6.output.dense.bias",
+      "vit.encoder.layer.6.output.dense.weight",
+      "vit.encoder.layer.7.attention.attention.key.bias",
+      "vit.encoder.layer.7.attention.attention.key.weight",
+      "vit.encoder.layer.7.attention.attention.query.bias",
+      "vit.encoder.layer.7.attention.attention.query.weight",
+      "vit.encoder.layer.7.attention.attention.value.bias",
+      "vit.encoder.layer.7.attention.attention.value.weight",
+      "vit.encoder.layer.7.attention.output.dense.bias",
+      "vit.encoder.layer.7.attention.output.dense.weight",
+      "vit.encoder.layer.7.intermediate.dense.bias",
+      "vit.encoder.layer.7.intermediate.dense.weight",
+      "vit.encoder.layer.7.layernorm_after.bias",
+      "vit.encoder.layer.7.layernorm_after.weight",
+      "vit.encoder.layer.7.layernorm_before.bias",
+      "vit.encoder.layer.7.layernorm_before.weight",
+      "vit.encoder.layer.7.output.dense.bias",
+      "vit.encoder.layer.7.output.dense.weight",
+      "vit.encoder.layer.8.attention.attention.key.bias",
+      "vit.encoder.layer.8.attention.attention.key.weight",
+      "vit.encoder.layer.8.attention.attention.query.bias",
+      "vit.encoder.layer.8.attention.attention.query.weight",
+      "vit.encoder.layer.8.attention.attention.value.bias",
+      "vit.encoder.layer.8.attention.attention.value.weight",
+      "vit.encoder.layer.8.attention.output.dense.bias",
+      "vit.encoder.layer.8.attention.output.dense.weight",
+      "vit.encoder.layer.8.intermediate.dense.bias",
+      "vit.encoder.layer.8.intermediate.dense.weight",
+      "vit.encoder.layer.8.layernorm_after.bias",
+      "vit.encoder.layer.8.layernorm_after.weight",
+      "vit.encoder.layer.8.layernorm_before.bias",
+      "vit.encoder.layer.8.layernorm_before.weight",
+      "vit.encoder.layer.8.output.dense.bias",
+      "vit.encoder.layer.8.output.dense.weight",
+      "vit.encoder.layer.9.attention.attention.key.bias",
+      "vit.encoder.layer.9.attention.attention.key.weight",
+      "vit.encoder.layer.9.attention.attention.query.bias",
+      "vit.encoder.layer.9.attention.attention.query.weight",
+      "vit.encoder.layer.9.attention.attention.value.bias",
+      "vit.encoder.layer.9.attention.attention.value.weight",
+      "vit.encoder.layer.9.attention.output.dense.bias",
+      "vit.encoder.layer.9.attention.output.dense.weight",
+      "vit.encoder.layer.9.intermediate.dense.bias",
+      "vit.encoder.layer.9.intermediate.dense.weight",
+      "vit.encoder.layer.9.layernorm_after.bias",
+      "vit.encoder.layer.9.layernorm_after.weight",
+      "vit.encoder.layer.9.layernorm_before.bias",
+      "vit.encoder.layer.9.layernorm_before.weight",
+      "vit.encoder.layer.9.output.dense.bias",
+      "vit.encoder.layer.9.output.dense.weight",
+      "vit.layernorm.bias",
+      "vit.layernorm.weight"
+    ],
+    "shapes": {
+      "classifier.bias": [
+        50
+      ],
+      "classifier.weight": [
+        50,
+        768
+      ],
+      "vit.embeddings.cls_token": [
+        1,
+        1,
+        768
+      ],
+      "vit.embeddings.patch_embeddings.projection.bias": [
+        768
+      ],
+      "vit.embeddings.patch_embeddings.projection.weight": [
+        768,
+        3,
+        16,
+        16
+      ],
+      "vit.embeddings.position_embeddings": [
+        1,
+        197,
+        768
+      ],
+      "vit.encoder.layer.0.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.0.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.0.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.0.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.0.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.0.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.0.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.0.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.0.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.0.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.0.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.0.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.0.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.0.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.0.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.0.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.1.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.1.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.1.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.1.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.1.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.1.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.1.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.1.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.1.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.1.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.1.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.1.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.1.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.1.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.1.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.1.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.10.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.10.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.10.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.10.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.10.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.10.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.10.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.10.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.10.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.10.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.10.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.10.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.10.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.10.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.10.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.10.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.11.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.11.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.11.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.11.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.11.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.11.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.11.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.11.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.11.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.11.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.11.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.11.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.11.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.11.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.11.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.11.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.2.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.2.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.2.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.2.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.2.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.2.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.2.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.2.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.2.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.2.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.2.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.2.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.2.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.2.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.2.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.2.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.3.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.3.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.3.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.3.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.3.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.3.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.3.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.3.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.3.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.3.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.3.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.3.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.3.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.3.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.3.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.3.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.4.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.4.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.4.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.4.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.4.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.4.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.4.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.4.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.4.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.4.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.4.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.4.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.4.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.4.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.4.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.4.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.5.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.5.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.5.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.5.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.5.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.5.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.5.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.5.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.5.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.5.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.5.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.5.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.5.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.5.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.5.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.5.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.6.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.6.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.6.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.6.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.6.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.6.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.6.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.6.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.6.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.6.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.6.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.6.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.6.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.6.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.6.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.6.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.7.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.7.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.7.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.7.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.7.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.7.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.7.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.7.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.7.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.7.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.7.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.7.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.7.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.7.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.7.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.7.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.8.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.8.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.8.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.8.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.8.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.8.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.8.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.8.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.8.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.8.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.8.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.8.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.8.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.8.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.8.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.8.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.encoder.layer.9.attention.attention.key.bias": [
+        768
+      ],
+      "vit.encoder.layer.9.attention.attention.key.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.9.attention.attention.query.bias": [
+        768
+      ],
+      "vit.encoder.layer.9.attention.attention.query.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.9.attention.attention.value.bias": [
+        768
+      ],
+      "vit.encoder.layer.9.attention.attention.value.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.9.attention.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.9.attention.output.dense.weight": [
+        768,
+        768
+      ],
+      "vit.encoder.layer.9.intermediate.dense.bias": [
+        3072
+      ],
+      "vit.encoder.layer.9.intermediate.dense.weight": [
+        3072,
+        768
+      ],
+      "vit.encoder.layer.9.layernorm_after.bias": [
+        768
+      ],
+      "vit.encoder.layer.9.layernorm_after.weight": [
+        768
+      ],
+      "vit.encoder.layer.9.layernorm_before.bias": [
+        768
+      ],
+      "vit.encoder.layer.9.layernorm_before.weight": [
+        768
+      ],
+      "vit.encoder.layer.9.output.dense.bias": [
+        768
+      ],
+      "vit.encoder.layer.9.output.dense.weight": [
+        768,
+        3072
+      ],
+      "vit.layernorm.bias": [
+        768
+      ],
+      "vit.layernorm.weight": [
+        768
+      ]
+    }
+  }
+}

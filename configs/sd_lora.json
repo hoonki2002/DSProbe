@@ -1,0 +1,8 @@
+{
+  "description": "Table 2: SD-LoRA L46, ProbeX 4K, common 500-epoch optimizer and evaluation protocol.",
+  "task": "sd_lora",
+  "models": ["SD_200", "SD_1k"],
+  "layers": {"SD_200": [46], "SD_1k": [46]},
+  "methods": ["probex4", "mvprobe", "r_dsprobe"],
+  "seeds": [1, 2, 3, 4, 5]
+}

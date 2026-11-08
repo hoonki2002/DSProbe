@@ -1,0 +1,29 @@
+{
+  "description": "Independent fits per weight matrix; no parameter sharing across layers.",
+  "task": "membership",
+  "models": [
+    "ResNet",
+    "SupViT",
+    "MAE",
+    "DINO"
+  ],
+  "layers": {
+    "ResNet": "all",
+    "SupViT": "all",
+    "MAE": "all",
+    "DINO": "all"
+  },
+  "methods": [
+    "probex",
+    "mvprobe",
+    "dsprobe",
+    "r_dsprobe"
+  ],
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

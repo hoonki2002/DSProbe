@@ -1,0 +1,40 @@
+{
+  "experiment": "offset",
+  "data_root": "data",
+  "output": "results/offset",
+  "models": [
+    "ResNet",
+    "SupViT",
+    "MAE",
+    "DINO"
+  ],
+  "layers": {
+    "ResNet": 98,
+    "SupViT": 53,
+    "MAE": 65,
+    "DINO": 47
+  },
+  "variants": [
+    "zero",
+    "mean_response",
+    "learned_reference"
+  ],
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "n_probes": 128,
+  "proj_dim": 128,
+  "rep_dim": 512,
+  "epochs": 500,
+  "eval_every": 25,
+  "batch_size": 128,
+  "eval_batch_size": 128,
+  "lr": 0.0003,
+  "weight_decay": 1e-05,
+  "cap": 0.0,
+  "threads": 2
+}

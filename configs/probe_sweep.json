@@ -1,0 +1,9 @@
+{
+  "description": "Figure 2 and Table 9: accuracy against the number of probes. Each method probes its own validation-selected layer, except ResNet, where the two selected layers differ in size and both methods are held at MVProbe's L55 so the cost comparison is iso-shape.",
+  "task": "membership",
+  "models": ["ResNet", "SupViT", "MAE", "DINO"],
+  "layers": {"ResNet": [55], "SupViT": [53], "MAE": [65], "DINO": [47]},
+  "layer_overrides": {"mvprobe": {"ResNet": [55], "SupViT": [59], "MAE": [64], "DINO": [47]}},
+  "methods": ["mvprobe", "r_dsprobe"],
+  "seeds": [1, 2, 3, 4, 5]
+}

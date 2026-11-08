@@ -1,0 +1,42 @@
+{
+  "experiment": "shared",
+  "data_root": "data",
+  "output": "results/shared",
+  "models": [
+    "ResNet",
+    "SupViT",
+    "MAE",
+    "DINO"
+  ],
+  "layers": {
+    "ResNet": 55,
+    "SupViT": 59,
+    "MAE": 64,
+    "DINO": 47
+  },
+  "variants": [
+    "specialist_raw",
+    "specialist",
+    "shared_raw",
+    "shared_ref"
+  ],
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "n_probes": 128,
+  "proj_dim": 128,
+  "rep_dim": 512,
+  "epochs": 500,
+  "eval_every": 25,
+  "batch_size": 128,
+  "eval_batch_size": 128,
+  "per_tree_batch": 32,
+  "lr": 0.0003,
+  "weight_decay": 1e-05,
+  "cap": 0.0,
+  "threads": 2
+}
