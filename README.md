@@ -1,9 +1,8 @@
 # The Reference Matters: Displacement Probing for Weight-Space Learning
 
-Official PyTorch implementation of **DSProbe** (DiSplacement Probe) and
-**R-DSProbe** (Refined DiSplacement Probe).
+Official PyTorch implementation of **DSProbe** (DiSplacement Probe) and **R-DSProbe** (Refined DiSplacement Probe).
 
-[Paper (coming soon)] · [\[OpenReview\]](https://openreview.net/group?id=ICLR.cc/2027/Conference/Authors&referrer=%5BHomepage%5D%28%2F%29)
+[Paper (arXiv, coming soon)]
 
 > **Note on collaboration.** This codebase was developed jointly by
 > [Haechan Shin](https://github.com/hcvir) and [Hoonki Lee](https://github.com/hoonki2002).
