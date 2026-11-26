@@ -175,7 +175,7 @@ expected layers, and outputs in **[docs/REPRODUCE.md](docs/REPRODUCE.md)**.
 
 @misc{shin2026reference,
   title = {The Reference Matters: Displacement Probing for Weight-Space Learning},
-  author = {Haechan Shin, Hoonki Lee, Jungwoon Kang, Wooyeol Baek, Sangyeob Kim and Jongyoo Kim},
+  author = {Haechan Shin and Hoonki Lee and Jungwoon Kang and Wooyeol Baek and Sangyeob Kim and Jongyoo Kim},
   year = {2026},
   eprint = {2611.33998},
   archivePrefix = {arXiv},
