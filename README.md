@@ -2,7 +2,7 @@
 
 Official PyTorch implementation of **DSProbe** (DiSplacement Probe) and **R-DSProbe** (Refined DiSplacement Probe).
 
-[Paper https://arxiv.org/abs/2611.33998]
+[![arXiv](https://img.shields.io/badge/arXiv-2611.33998-b31b1b.svg)](https://arxiv.org/abs/2611.33998)
 
 > **Note on collaboration.** This codebase was developed jointly by
 > [Haechan Shin](https://github.com/hcvir) and [Hoonki Lee](https://github.com/hoonki2002).
@@ -92,8 +92,8 @@ itself a displacement from the pretrained weights, so DSProbe coincides with MVP
 Requires Python 3.10 or 3.11 and PyTorch 2.5.1 or newer.
 
 ```bash
-git clone https://github.com/hoonki2002/R-DSProbe-opensource.git
-cd R-DSProbe-opensource
+git clone https://github.com/hoonki2002/DSProbe.git
+cd DSProbe
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
@@ -173,15 +173,17 @@ expected layers, and outputs in **[docs/REPRODUCE.md](docs/REPRODUCE.md)**.
 
 ## Citation
 
+```bibtex
 @misc{shin2026reference,
-  title = {The Reference Matters: Displacement Probing for Weight-Space Learning},
-  author = {Haechan Shin and Hoonki Lee and Jungwoon Kang and Wooyeol Baek and Sangyeob Kim and Jongyoo Kim},
-  year = {2026},
-  eprint = {2611.33998},
+  title         = {The Reference Matters: Displacement Probing for Weight-Space Learning},
+  author        = {Haechan Shin and Hoonki Lee and Jungwoon Kang and Wooyeol Baek and Sangyeob Kim and Jongyoo Kim},
+  year          = {2026},
+  eprint        = {2611.33998},
   archivePrefix = {arXiv},
-  primaryClass = {cs.LG},
-  url = {https://arxiv.org/abs/2611.33998}
+  primaryClass  = {cs.LG},
+  url           = {https://arxiv.org/abs/2611.33998}
 }
+```
 
 
 ## Acknowledgements
